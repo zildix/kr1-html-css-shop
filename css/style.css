@@ -42,12 +42,6 @@ html {
   outline-offset: 4px;
 }
 
-
-/* 
-  Универсальное правило для всех элементов.
-  border-box делает расчёт размеров более понятным:
-  width включает content, padding и border.
-*/
 /* ===============================
    2. Базовые стили
    =============================== */
@@ -64,40 +58,34 @@ body {
   background-color: var(--color-bg);
 }
 
-/*
-  Задаём внутренние отступы для основных областей страницы.
-  Это делает содержимое визуально отделённым от краёв окна браузера.
-*/
 header,
 main,
 footer {
   padding: var(--space-lg);
 }
 
-/*
-  Оформляем шапку страницы.
-  Пока используется простой светло-серый фон.
-*/
 header {
   background-color: var(--color-surface);
 }
 
-
-/*
-  Оформляем подвал страницы тем же фоном,
-  чтобы визуально отделить его от основного содержимого.
-*/
 footer {
   background-color: var(--color-surface);
 }
 
-/*
-  Ограничиваем ширину содержимого шапки,
-  чтобы оно не растягивалось слишком сильно на широких экранах.
-*/
 .site-header {
-  max-width: 1100px;
+  background-color: var(--color-surface);
+}
+
+.site-header__inner {
+  max-width: var(--container-width);
   margin: 0 auto;
+  padding: var(--space-lg);
+}
+
+.site-header__logo {
+  font-weight: 700;
+  color: var(--color-text);
+  text-decoration: none;
 }
 
 /* ===============================
@@ -117,19 +105,6 @@ a:focus-visible {
   outline-offset: 3px;
 }
 
-
-/*
-  Оформляем текстовый логотип.
-*/
-.site-logo {
-  font-weight: bold;
-  text-decoration: none;
-  color: #222222;
-}
-
-/*
-  Убираем стандартные отступы и маркеры списка навигации.
-*/
 .site-nav__list {
   display: flex;
   flex-wrap: wrap;
@@ -141,18 +116,7 @@ a:focus-visible {
   list-style: none;
 }
 
-
-/*
-  Добавляем расстояние между пунктами меню.
-*/
-.site-nav__list li {
-  margin-bottom: 8px;
-}
-
-/*
-  Оформляем ссылки меню.
-*/
-.site-nav__list a {
+.site-nav__link {
   display: inline-block;
   padding: var(--space-sm) var(--space-md);
   color: var(--color-primary);
@@ -160,32 +124,50 @@ a:focus-visible {
   border-radius: var(--radius-sm);
 }
 
-
-/*
-  При наведении мыши подчёркиваем ссылку.
-  Подробно состояния интерфейса будут рассмотрены в практической работе 1.7.
-*/
-.site-nav__list a:hover {
+.site-nav__link:hover {
   color: var(--color-white);
   background-color: var(--color-primary);
 }
 
-/*
-  Пока это обычная ссылка, но визуально она оформляется как кнопка.
-*/
+.site-nav__link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.site-nav__link--active {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+}
+
+/* Базовый блок кнопки — только структура */
 .button {
   display: inline-block;
   padding: var(--space-sm) var(--space-md);
-  color: var(--color-white);
-  background-color: var(--color-primary);
-  text-decoration: none;
   border: none;
   border-radius: var(--radius-sm);
+  font: inherit;
+  text-decoration: none;
   cursor: pointer;
 }
 
-.button:hover {
+.button--primary {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+}
+
+.button--primary:hover {
   background-color: var(--color-primary-dark);
+}
+
+.button--secondary {
+  color: var(--color-primary);
+  background-color: transparent;
+  border: 1px solid var(--color-primary);
+}
+
+.button--secondary:hover {
+  color: var(--color-white);
+  background-color: var(--color-primary);
 }
 
 .button:focus-visible {
@@ -193,7 +175,8 @@ a:focus-visible {
   outline-offset: 3px;
 }
 
-.button:disabled {
+.button:disabled,
+.button--disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
@@ -219,38 +202,52 @@ a:focus-visible {
   margin-top: 0;
 }
 
-/*
-  Карточка товара — самостоятельный блок.
-  На следующих занятиях карточки будут доработаны и выстроены в сетку.
-*/
 .product-card {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
-  margin-bottom: 0;
   padding: var(--space-md);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background-color: var(--color-bg);
 }
 
-.product-card .button {
-  margin-top: auto;
-  align-self: flex-start;
-}
-
-
 .product-card:hover {
   border-color: var(--color-primary);
 }
 
-.product-card h3 {
-  margin-top: 0;
+.product-card--featured {
+  border-color: var(--color-primary);
 }
 
-/*
-  Дополнительный информационный блок.
-*/
+.product-card--discount {
+  border-color: var(--color-danger);
+}
+
+.product-card__title {
+  margin: 0;
+  color: var(--color-text);
+}
+
+.product-card__description {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.product-card__price {
+  margin: 0;
+  font-weight: 700;
+}
+
+.product-card--discount .product-card__price {
+  color: var(--color-danger);
+}
+
+.product-card__button {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
 .aside-info {
   max-width: var(--container-width);
   margin: 0 auto var(--space-xl);
@@ -259,10 +256,6 @@ a:focus-visible {
   background-color: var(--color-surface);
 }
 
-
-/*
-  Сообщение об успешной отправке.
-*/
 .success-message {
   max-width: var(--container-width);
   margin: var(--space-lg) auto;
@@ -271,10 +264,59 @@ a:focus-visible {
   background-color: var(--color-success-bg);
 }
 
-
 /* ===============================
    5. Форма и модальное окно
    =============================== */
+
+.order-form {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.order-form__field {
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.order-form__label {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.order-form__input,
+.order-form__select,
+.order-form__textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font: inherit;
+}
+
+.order-form__input:hover,
+.order-form__select:hover,
+.order-form__textarea:hover {
+  border-color: var(--color-primary);
+}
+
+.order-form__input:focus-visible,
+.order-form__select:focus-visible,
+.order-form__textarea:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.order-form__input[aria-invalid="true"],
+.order-form__select[aria-invalid="true"],
+.order-form__textarea[aria-invalid="true"] {
+  border-color: var(--color-danger);
+}
+
+.order-form__actions {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
 
 .order-dialog {
   width: min(100% - 32px, 560px);
@@ -287,65 +329,13 @@ a:focus-visible {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.form-field {
-  margin-bottom: var(--space-md);
+.order-dialog__title {
+  margin-top: 0;
 }
 
-.form-field label {
-  display: block;
-  margin-bottom: var(--space-xs);
-}
-
-.form-field input,
-.form-field select,
-.form-field textarea {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  font: inherit;
-}
-
-.form-field input[type="checkbox"] {
-  width: auto;
-}
-
-.form-field small {
-  display: block;
-  margin-top: var(--space-xs);
-  color: var(--color-muted);
-}
-
-/*
-  Видимый фокус для клавиатурной навигации.
-*/
-.form-field input:hover,
-.form-field select:hover,
-.form-field textarea:hover {
-  border-color: var(--color-primary);
-}
-
-.form-field input:focus-visible,
-.form-field select:focus-visible,
-.form-field textarea:focus-visible,
-.form-actions button:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 3px;
-}
-
-[aria-invalid="true"] {
-  border-color: var(--color-danger);
-}
-
-
-/*
-  Кнопки формы.
-*/
-.form-actions {
-  display: flex;
-  gap: 12px;
-  margin-top: 20px;
-}
+/* ===============================
+   6. Хлебные крошки
+   =============================== */
 
 .breadcrumbs {
   max-width: var(--container-width);
@@ -354,15 +344,18 @@ a:focus-visible {
   color: var(--color-muted);
 }
 
-.breadcrumbs a {
+.breadcrumbs__link {
   color: var(--color-primary);
 }
 
-.breadcrumbs span::before {
+.breadcrumbs__current::before {
   content: " / ";
   color: var(--color-muted);
 }
 
+/* ===============================
+   7. Каталог
+   =============================== */
 
 .products-grid {
   display: grid;
