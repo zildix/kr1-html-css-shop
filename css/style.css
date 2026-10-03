@@ -33,6 +33,15 @@
   --container-width: 1100px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+:target {
+  outline: 2px dashed var(--color-primary);
+  outline-offset: 4px;
+}
+
 
 /* 
   Универсальное правило для всех элементов.
@@ -315,4 +324,20 @@ a:focus-visible {
   display: flex;
   gap: 12px;
   margin-top: 20px;
+}
+
+.breadcrumbs {
+  max-width: var(--container-width);
+  margin: 0 auto var(--space-md);
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+.breadcrumbs a {
+  color: var(--color-primary);
+}
+
+.breadcrumbs span::before {
+  content: " / ";
+  color: var(--color-muted);
 }
