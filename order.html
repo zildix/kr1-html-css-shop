@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Оформление заявки на заказ товара в учебном интернет-магазине">
+  <title>Оформление заказа — Учебный интернет-магазин</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="index.html">ShopProject</a>
+    <nav class="site-nav" aria-label="Основная навигация">
+      <ul class="site-nav__list">
+        <li><a class="site-nav__link" href="index.html">Главная</a></li>
+        <li><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+        <li><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+        <li><a class="site-nav__link site-nav__link--active" href="order.html">Перейти к заказу</a></li>
+        <li><a class="site-nav__link" href="index.html#advantages">Преимущества</a></li>
+        <li><a class="site-nav__link" href="index.html#popular">Популярные товары</a></li>
+        <li><a class="site-nav__link" href="index.html#contacts">Обратная связь</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <nav class="breadcrumbs" aria-label="Хлебные крошки">
+    <a class="breadcrumbs__link" href="index.html">Главная</a>
+    <span class="breadcrumbs__current">Оформление заявки</span>
+  </nav>
+
+  <section class="section order-page">
+    <div class="order-page__container">
+      <h1 class="order-page__title">Оформление заявки</h1>
+
+      <form class="order-form" id="order-form" action="#" method="post">
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-product">Выберите товар</label>
+          <select class="order-form__select" id="order-product" name="product" required>
+            <option value="">-- Выберите товар из каталога --</option>
+            <option value="ps5">Игровая приставка Sony PlayStation 5 — 54 990 руб.</option>
+            <option value="headphones">Беспроводные наушники Sony WH-1000XM5 — 29 990 руб.</option>
+            <option value="monitor">Игровой монитор 27" LG UltraGear — 26 490 руб.</option>
+          </select>
+        </div>
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-name">Имя</label>
+          <input class="order-form__input" id="order-name" name="name" type="text" placeholder="Введите ваше имя" required>
+        </div>
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-email">E-mail</label>
+          <input class="order-form__input" id="order-email" name="email" type="email" placeholder="example@mail.ru" required>
+        </div>
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-phone">Телефон</label>
+          <input class="order-form__input" id="order-phone" name="phone" type="tel" placeholder="+7 (900) 000-00-00" required>
+        </div>
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-topic">Тема заявки</label>
+          <select class="order-form__select" id="order-topic" name="topic" required>
+            <option value="product" selected>Заказ товара</option>
+            <option value="consultation">Консультация</option>
+            <option value="delivery">Доставка</option>
+          </select>
+        </div>
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-comment">Комментарий</label>
+          <textarea class="order-form__textarea" id="order-comment" name="comment" rows="3" placeholder="Укажите дополнительную информацию"></textarea>
+        </div>
+        <div class="order-form__field">
+          <label>
+            <input id="order-agreement" name="agreement" type="checkbox" required>
+            Я согласен на обработку персональных данных
+          </label>
+        </div>
+        <div class="order-form__actions">
+          <a class="button button--secondary" href="index.html">На главную</a>
+          <button class="button button--primary" type="submit">Отправить заявку</button>
+        </div>
+      </form>
+
+      <p class="success-message" id="success-message" hidden>
+        Заявка успешно отправлена! Наш менеджер свяжется с вами.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+  <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

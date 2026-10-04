@@ -72,3 +72,66 @@ orderForm.addEventListener('submit', (event) => {
   // Закрываем модальное окно.
   orderDialog.close();
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const orderDialog = document.getElementById('order-dialog');
+  const orderButtons = document.querySelectorAll('.product-card__button');
+  const feedbackBtn = document.getElementById('open-feedback-btn'); // Кнопка обратной связи
+  const closeDialogButton = document.getElementById('close-order-dialog');
+  const selectedProductInput = document.getElementById('selected-product');
+  const orderForm = document.getElementById('order-form');
+  const successMessage = document.getElementById('success-message');
+
+  // 1. Открытие модального окна из карточек товаров
+  if (orderButtons.length > 0 && orderDialog) {
+    orderButtons.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        if (selectedProductInput) {
+          selectedProductInput.value = button.dataset.product;
+        }
+        orderDialog.showModal();
+      });
+    });
+  }
+
+  // 2. Открытие модального окна по кнопке "Обратная связь"
+  if (feedbackBtn && orderDialog) {
+    feedbackBtn.addEventListener('click', () => {
+      if (selectedProductInput) {
+        selectedProductInput.value = 'Обратная связь / Консультация';
+      }
+      orderDialog.showModal();
+    });
+  }
+
+  // 3. Закрытие модального окна
+  if (closeDialogButton && orderDialog) {
+    closeDialogButton.addEventListener('click', () => {
+      orderDialog.close();
+    });
+  }
+
+  // 4. Валидация и отправка формы
+  if (orderForm) {
+    orderForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      if (!orderForm.checkValidity()) {
+        orderForm.reportValidity();
+        return;
+      }
+
+      if (successMessage) {
+        successMessage.hidden = false;
+      }
+
+      orderForm.reset();
+      
+      if (orderDialog && typeof orderDialog.close === 'function' && orderDialog.open) {
+        orderDialog.close();
+      }
+    });
+  }
+});

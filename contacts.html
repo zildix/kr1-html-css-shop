@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Контактная информация учебного интернет-магазина.">
+  <meta name="description" content="Контактная информация учебного интернет-магазина">
   <title>Контакты — Учебный интернет-магазин</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -15,18 +15,13 @@
 
     <nav class="site-nav" aria-label="Основная навигация">
       <ul class="site-nav__list">
-        <li class="site-nav__item">
-          <a class="site-nav__link" href="index.html">Главная</a>
-        </li>
-        <li class="site-nav__item">
-          <a class="site-nav__link" href="catalog.html">Каталог</a>
-        </li>
-        <li class="site-nav__item">
-          <a class="site-nav__link site-nav__link--active" href="contacts.html">Контакты</a>
-        </li>
-        <li class="site-nav__item">
-          <a class="site-nav__link" href="index.html#popular">Популярные товары</a>
-        </li>
+        <li><a class="site-nav__link" href="index.html">Главная</a></li>
+        <li><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+        <li><a class="site-nav__link site-nav__link--active" href="contacts.html">Контакты</a></li>
+        <li><a class="site-nav__link" href="order.html">Перейти к заказу</a></li>
+        <li><a class="site-nav__link" href="index.html#advantages">Преимущества</a></li>
+        <li><a class="site-nav__link" href="index.html#popular">Популярные товары</a></li>
+        <li><a class="site-nav__link" href="index.html#contacts">Обратная связь</a></li>
       </ul>
     </nav>
   </div>
@@ -40,10 +35,7 @@
 
   <section class="section">
     <h1>Контакты</h1>
-    <p>
-      Здесь размещается контактная информация учебного интернет-магазина.
-    </p>
-
+    <p>Здесь размещается контактная информация учебного интернет-магазина.</p>
     <ul>
       <li>Телефон: +7 (900) 000-00-00</li>
       <li>E-mail: info@example.com</li>
@@ -51,12 +43,24 @@
     </ul>
   </section>
 
+  <section class="section contacts-map">
+    <h2>Мы на карте</h2>
+    <iframe
+      class="contacts-map__frame"
+      src="https://yandex.ru/map-widget/v1/?ll=37.617700%2C55.755800&z=12"
+      width="100%"
+      height="400"
+      frameborder="0"
+      allowfullscreen
+      loading="lazy"
+      title="Карта: центр Москвы"
+    ></iframe>
+  </section>
+
   <section class="section" id="feedback">
     <h2>Обратная связь</h2>
-    <p>
-      Для отправки заявки используйте форму в модальном окне на главной странице.
-    </p>
-    <a class="button button--primary" href="index.html#contacts">Перейти к форме</a>
+    <p>Для отправки заявки используйте форму в модальном окне на главной странице.</p>
+    <a class="button" href="index.html#contacts">Перейти к форме</a>
   </section>
 </main>
 
@@ -64,6 +68,5 @@
   <p>&copy; 2026 Учебный проект. Все права защищены.</p>
   <p>Дисциплина: Фронтенд и бэкенд разработка</p>
 </footer>
-
 </body>
 </html>
