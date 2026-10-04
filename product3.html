@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Игровой монитор 27 дюймов LG UltraGear — Характеристики и заказ товара">
+  <title>Игровой монитор 27" LG UltraGear — Учебный интернет-магазин</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="index.html">ShopProject</a>
+    <nav class="site-nav" aria-label="Основная навигация">
+      <ul class="site-nav__list">
+        <li><a class="site-nav__link" href="index.html">Главная</a></li>
+        <li><a class="site-nav__link site-nav__link--active" href="catalog.html">Каталог</a></li>
+        <li><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+        <li><a class="site-nav__link" href="order.html">Перейти к заказу</a></li>
+        <li><a class="site-nav__link" href="index.html#advantages">Преимущества</a></li>
+        <li><a class="site-nav__link" href="index.html#popular">Популярные товары</a></li>
+        <li><a class="site-nav__link" href="index.html#contacts">Обратная связь</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <nav class="breadcrumbs" aria-label="Хлебные крошки">
+    <a class="breadcrumbs__link" href="index.html">Главная</a>
+    <a class="breadcrumbs__link" href="catalog.html">Каталог</a>
+    <span class="breadcrumbs__current">Игровой монитор 27" LG UltraGear</span>
+  </nav>
+
+  <section class="section product-page">
+    <div class="product-page__inner">
+      <div class="product-page__media">
+        <img src="images/LG-Ultra-Gear.png" alt='Игровой монитор 27" LG UltraGear' class="product-page__image">
+      </div>
+      <div class="product-page__info">
+        <h1 class="product-page__title">Игровой монитор 27" LG UltraGear</h1>
+        <p class="product-page__price">Цена: 26 490 руб.</p>
+        <p class="product-page__desc">Скоростной игровой монитор с IPS-матрицей, разрешением 2K QHD, частотой 144 Гц и откликом 1 мс для максимально плавного и четкого изображения в играх.</p>
+        <h2 class="product-page__subtitle">Характеристики</h2>
+        <table class="product-page__specs">
+          <caption>Технические характеристики устройства</caption>
+          <thead>
+            <tr>
+              <th>Параметр</th>
+              <th>Значение</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th>Диагональ экрана</th><td>27 дюймов (68.5 см)</td></tr>
+            <tr><th>Разрешение</th><td>2560x1440 (2K QHD)</td></tr>
+            <tr><th>Тип матрицы</th><td>IPS (цветовой охват sRGB 99%)</td></tr>
+            <tr><th>Частота обновления</th><td>144 Гц</td></tr>
+            <tr><th>Время отклика</th><td>1 мс (GtG)</td></tr>
+            <tr><th>Интерфейсы</th><td>2x HDMI 2.0, 1x DisplayPort 1.4, выход аудио 3.5 мм</td></tr>
+            <tr><th>Гарантия</th><td>24 месяца</td></tr>
+          </tbody>
+        </table>
+        <button class="button button--primary product-card__button" type="button" data-product='Игровой монитор 27" LG UltraGear' onclick="event.stopPropagation()">Заказать</button>
+      </div>
+    </div>
+  </section>
+
+  <p class="success-message" id="success-message" hidden>
+    Заявка успешно отправлена!
+  </p>
+</main>
+
+<dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+  <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
+  <form class="order-form" id="order-form" action="#" method="post">
+    <input id="selected-product" name="product" type="hidden">
+    <div class="order-form__field">
+      <label class="order-form__label" for="order-name">Имя</label>
+      <input class="order-form__input" id="order-name" name="name" type="text" placeholder="Введите ваше имя" required>
+    </div>
+    <div class="order-form__field">
+      <label class="order-form__label" for="order-email">E-mail</label>
+      <input class="order-form__input" id="order-email" name="email" type="email" placeholder="example@mail.ru" required>
+    </div>
+    <div class="order-form__field">
+      <label class="order-form__label" for="order-phone">Телефон</label>
+      <input class="order-form__input" id="order-phone" name="phone" type="tel" placeholder="+7 (900) 000-00-00" required>
+    </div>
+    <div class="order-form__field">
+      <label class="order-form__label" for="order-topic">Тема заявки</label>
+      <select class="order-form__select" id="order-topic" name="topic" required>
+        <option value="product" selected>Заказ товара</option>
+        <option value="consultation">Консультация</option>
+        <option value="delivery">Доставка</option>
+      </select>
+    </div>
+    <div class="order-form__field">
+      <label class="order-form__label" for="order-comment">Комментарий</label>
+      <textarea class="order-form__textarea" id="order-comment" name="comment" rows="3" placeholder="Укажите дополнительную информацию"></textarea>
+    </div>
+    <div class="order-form__field">
+      <label>
+        <input id="order-agreement" name="agreement" type="checkbox" required>
+        Я согласен на обработку персональных данных
+      </label>
+    </div>
+    <div class="order-form__actions">
+      <button class="button button--secondary" type="button" id="close-order-dialog">Закрыть</button>
+      <button class="button button--primary" type="submit">Отправить заявку</button>
+    </div>
+  </form>
+</dialog>
+
+<footer>
+  <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+  <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
