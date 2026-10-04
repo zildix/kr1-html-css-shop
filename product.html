@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Товар 1 — страница товара</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a href="index.html" class="site-header__logo">Учебный магазин</a>
+
+            <nav class="site-nav">
+                <ul class="site-nav__list">
+                    <li><a href="index.html" class="site-nav__link">Главная</a></li>
+                    <li><a href="catalog.html" class="site-nav__link">Каталог</a></li>
+                    <li><a href="contacts.html" class="site-nav__link">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+<main>
+
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a href="index.html" class="breadcrumbs__link">Главная</a>
+        <a href="catalog.html" class="breadcrumbs__link">Каталог</a>
+        <span class="breadcrumbs__current">Товар</span>
+    </nav>
+
+    <article class="product-page">
+
+        <div class="product-page__top">
+
+            <div class="product-page__gallery">
+                <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&auto=format&fit=crop&q=80"
+                     alt="Товар">
+            </div>
+
+            <div class="product-page__summary">
+                <h1 class="product-page__title" id="product-title">Товар</h1>
+                <p class="product-page__article" id="product-article">Артикул: —</p>
+
+                <div class="product-page__rating">
+                    <span class="product-page__stars">★★★★★</span>
+                    <span class="product-page__rating-text">4.8 · 56 отзывов</span>
+                </div>
+
+                <div class="product-page__price-block">
+                    <span class="product-page__price-current" id="product-price">— руб.</span>
+                    <span class="product-page__price-old" id="product-old-price"></span>
+                </div>
+
+                <div class="product-page__actions">
+                    <button class="button button--primary" type="button">Заказать</button>
+                    <button class="button button--secondary" type="button">В избранное</button>
+                </div>
+
+                <ul class="product-page__features">
+                    <li>В наличии на складе</li>
+                    <li>Доставка по всей России</li>
+                    <li>Гарантия 12 месяцев</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="product-page__details">
+            <h2>Описание товара</h2>
+            <p id="product-description">
+                Это учебный товар, предназначенный для демонстрации страницы товара.
+            </p>
+
+            <h2>Характеристики</h2>
+<table class="specs-table">
+    <tr>
+        <td>Производитель</td>
+        <td id="spec-manufacturer">—</td>
+    </tr>
+    <tr>
+        <td>Модель</td>
+        <td id="spec-model">—</td>
+    </tr>
+    <tr>
+        <td>Цвет</td>
+        <td id="spec-color">—</td>
+    </tr>
+    <tr>
+        <td>Вес</td>
+        <td id="spec-weight">—</td>
+    </tr>
+    <tr>
+        <td>Гарантия</td>
+        <td id="spec-warranty">—</td>
+    </tr>
+</table>
+        </div>
+
+    </article>
+
+</main>
+
+    <footer>
+        <p>© 2024 Учебный магазин</p>
+    </footer>
+<script src="js/main.js"></script>
+</body>
+</html>
