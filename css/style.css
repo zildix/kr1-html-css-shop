@@ -52,6 +52,9 @@ body {
   line-height: 1.5;
   color: var(--color-text);
   background-color: var(--color-bg);
+   display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 header,
@@ -66,6 +69,11 @@ header {
 
 footer {
   background-color: var(--color-surface);
+
+}
+
+main {
+  flex-grow: 1;
 }
 
 .site-header {
@@ -134,7 +142,7 @@ a:focus-visible {
 }
 
 .site-nav__link--active {
-  color: var(--color-white);
+  color: var(--color-white) !important;
   background-color: var(--color-primary);
 }
 
@@ -276,6 +284,14 @@ a:focus-visible {
   background-color: var(--color-success-bg);
 }
 
+/* В секцию 4 или в конец файла */
+main > :is(.hero, .section, .aside-info, .success-message, .catalog-layout, .breadcrumbs) {
+  max-width: 100%;
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+}
+
+
 /* ===============================
    5. Форма и модальное окно
    =============================== */
@@ -363,6 +379,17 @@ a:focus-visible {
 .breadcrumbs__current::before {
   content: " / ";
   color: var(--color-muted);
+}
+
+.breadcrumbs > * + *::before {
+  content: " / ";
+  color: var(--color-muted);
+  margin: 0 var(--space-xs); /* Добавит аккуратные отступы слева и справа от слэша */
+}
+
+.breadcrumbs__link {
+  color: var(--color-primary);
+  text-decoration: none; /* Убирает подчеркивание по умолчанию, если нужно */
 }
 
 /* ===============================
